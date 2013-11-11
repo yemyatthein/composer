@@ -1,0 +1,5 @@
+>>> import gdata
+>>> yt_service = gdata.youtube.service.YouTubeService()
+>>> entry = yt_service.GetYouTubeVideoEntry(video_id='1dfHLVu8zbk')
+>>> for thumbnail in entry.media.thumbnail:
+	    print 'Thumbnail url: %s' % thumbnail.url

@@ -1,0 +1,38 @@
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='browse_collection.css') }}">
+
+<div class="main_title">
+    My Collections
+</div>
+
+{% for item in cls %}
+    <div class="content_container individual_collection rounded">
+        <div class="small_container">
+            <table>
+                <tr>
+                    <td>
+                        <table border="0">
+                            <tr>
+                                <td><img src="{{ idict[item.cid][0] }}" class="collection_images_repr" /></td>
+                                <td><img src="{{ idict[item.cid][1] }}" class="collection_images_repr" /></td>
+                                <td><img src="{{ idict[item.cid][2] }}" class="collection_images_repr" /></td>
+                                <td class="small_desc_td_container">
+                                    <span class="short_title rounded">
+                                        <a href="{{ url_for('view_collection', cid=item.cid) }}">{{ item.name }}</a>
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="collection_description" style="margin:5px; padding:5px;">
+                            {{ item.desc }}
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+{%- endfor %}

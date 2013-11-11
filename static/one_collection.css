@@ -1,0 +1,14 @@
+.collection_content {
+    margin: 5px;
+    margin-bottom: 10px;
+    width:820px; 
+}
+
+.add_button_icon_container {
+    padding-top: 20px; 
+    padding-left: 10px
+}
+.add_button_img {
+    width: 100px;
+    height: 100px;
+}

@@ -1,0 +1,33 @@
+<script type=text/javascript>
+    $SCRIPT_ROOT = {{ request.url_root|tojson|safe }};
+</script>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='others.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='jquery-ui.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='add_relation.js') }}"></script>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='jquery-ui.css') }}">
+<style>
+    input[type=text] {
+        height: 40px;
+    }
+</style>
+
+<div style="display:none">
+    <input type="text" id="resource_id" value="{{ rid }}" />
+</div>
+
+<div id="added_div" class="content_container rounded" style="display:none; width:500px; background-color:pink; margin-bottom:10px;">
+    
+</div>
+
+<div class="content_container rounded" style="width:500px;">
+    <form id="form" method="POST" action="{{url_for('add_relation', rid=rid, gid=gid, cid=cid)}}"> 
+        <p>{{ form.relation_name.label }} {{ form.relation_name }} <input class="myButton" type="submit" value="Add Relation"></p>
+        <div class="small_container group_content_container" style="padding:5px; margin-top:30px;">
+            {% for item in resources %}
+                <div id="res_{{ item.rid }}_div" class="indiv_rel_from_item_container"><a class="av_resource" id="res_{{ item.rid }}" value="{{ item.rid }}" href="">{{ item }}</a></div>
+            {%- endfor %}
+        </div>
+    </form>
+</div>

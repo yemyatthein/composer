@@ -1,0 +1,38 @@
+<script type=text/javascript>
+    $SCRIPT_ROOT = {{ request.url_root|tojson|safe }};
+</script>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='create_resource.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='others.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='create_resource.js') }}"></script>
+
+
+
+<div class="content_container rounded" style="width:600px; text-align:center">
+    <form method="POST" action="{{url_for('create_resource', cid=cid, gid=gid)}}"> 
+        <table border="0">
+            <tr>
+                <td>
+                    <div id="img_block" style="display:normal; text-align:center">
+                        <div id="new_res_img_container"><img src="#" id="thumbnail" width="250" /></div>
+                        <div align="center">
+                            <span class="prev_next_img_link"><a id="previous_image" href="">Previous Image</a></span><span class="prev_next_img_link"><a id="next_image" href="">Next Image</a></span>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div id="new_res_form_container">
+                        <p>{{ form.url.label }}<br/>{{ form.url }}</p>
+                        <p>{{ form.title.label }}<br/>{{ form.title }}</p>
+                        <p>{{ form.desc.label }}<br/>{{ form.desc }}</p>
+                        {{ form.image_url }}
+                        <div align="right"><input id="submit" class="myButton" type="submit" value="Create Resource"></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        
+        
+    </form>
+</div>

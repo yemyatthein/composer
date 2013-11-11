@@ -1,0 +1,75 @@
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='one_collection.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='others.css') }}">
+
+<div class="main_title">
+    {{ cl.name }}
+</div>
+
+<table>
+    <tr>
+        <td>
+            <div class="content_container collection_content rounded" style="padding:5px;">
+                {% for group in groups %}
+                    <div class="small_container group_content_container">
+                        <span class="short_title rounded"><b>{{ group }}</b></span>
+                        <table class="indiv_resource_holder">
+                            {% if group.gid in group_resources %}
+                                {% for resource in group_resources[group.gid] %}
+                                    {% if loop.index % 6 == 0 %}
+                                        <tr><td>
+                                    {% else %}
+                                        <td class="indiv_resource_container">
+                                    {% endif %}
+                                            <div class="indiv_resource_container">
+                                                <div class="img_container_small">
+                                                    <a href="{{ url_for('view_resource', rid=resource.rid) }}"><img src="{{ resource.image_url }}" class="img_representative_collection" /></a>
+                                                </div>
+                                                <div class="title_representative_collection">
+                                                    <a href="{{ url_for('view_resource', rid=resource.rid) }}">{{ resource.title[:25] + '...' }}</a>
+                                                </div>
+                                            </div>
+                                    {% if loop.index % 5 == 0 %}
+                                        </td></tr>
+                                        {% if loop.last %}
+                                            <tr><td>
+                                                <div class="indiv_resource_container" style="background-color:none">
+                                                    <div class="add_button_icon_container">
+                                                        <a href="{{ url_for('create_resource', cid=cl.cid, gid=group.gid) }}" title="Add New Resource"><img class="add_button_img" style="" src="http://goo.gl/B4hT0G" /></a>
+                                                    </div>
+                                                </div>
+                                            </td></tr>
+                                        {% endif %}
+                                    {% else %}
+                                        </td>
+                                        {% if loop.last %}
+                                            <td>
+                                                <div class="indiv_resource_container" style="background-color:none">
+                                                    <div class="add_button_icon_container">
+                                                        <a href="{{ url_for('create_resource', cid=cl.cid, gid=group.gid) }}" title="Add New Resource"><img class="add_button_img" style="" src="http://goo.gl/B4hT0G" /></a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </table>
+                    </div>
+                {% endfor %}
+            </div>
+        </td>
+        <td valign="top">
+            <div class="content_container rounded" id="right_side_info">
+                <div style="padding:15px;">
+                    <div class="collection_description" style="padding:8px; min-height:100px;">
+                        {{ cl.desc }}
+                    </div>
+                </div>
+                <div style="text-align:center; padding-top:5px;">
+                    <a style="width:180px;" href="{{ url_for('create_group', cid=cl.cid) }}" class="myButton">Create New Group</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>

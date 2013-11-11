@@ -1,0 +1,18 @@
+.prev_next_img_link {
+    margin-right: 20px;
+}
+input[type=text], textarea {
+    width: 300px;
+}
+#new_res_img_container {
+    border:1px solid; 
+    border-color:#BBB8B8; 
+    width:250px; 
+    height:250px;
+}
+#new_res_form_container {
+    margin-left:20px; 
+    margin-right:20px; 
+    background-color:white; 
+    text-align:left;
+}

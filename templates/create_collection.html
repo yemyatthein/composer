@@ -1,0 +1,11 @@
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='others.css') }}">
+
+
+<div class="content_container rounded" style="width:280px;">
+    <form method="POST" action="{{url_for('create_collection')}}"> 
+        <p>{{ form.cname.label }}<br/>{{ form.cname }}</p>
+        <p>{{ form.desc.label }}<br/>{{ form.desc }}</p>
+        <input class="myButton" type="submit" value="Create Collection">
+    </form>
+</div>

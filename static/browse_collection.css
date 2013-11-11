@@ -1,0 +1,17 @@
+.individual_collection {
+    margin: 5px;
+    margin-bottom: 10px;
+    width: 500px;
+}
+img.collection_images_repr {
+    padding: 5px;
+    width: 60px;
+    height: 60px;
+}
+td.small_desc_td_container {
+    padding: 5px; 
+    padding-left: 10px; 
+    font-size: 20px; 
+    font-weight: bold;
+    width: 300px;
+}

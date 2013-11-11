@@ -1,0 +1,57 @@
+.resource_content_container {
+    margin: 5px;
+    margin-bottom: 10px;
+    width: 600px; 
+    min-height: 200px;
+}
+table#main_resource_holder_tb {
+    background-color: #BDBDBD;
+}
+#resource_image_holder {
+    padding:8px; 
+    background-color:white; 
+    height:195px; 
+    margin:5px;
+}
+img#resource_image {
+    width: 260px;
+    height: 195px;
+}
+#resource_title_from_container {
+    background-color:white; 
+    margin:5px; 
+    padding:5px; 
+    margin-top:20px; 
+    font-size:20px;
+}
+#resource_title_holder {
+    min-height:80px; 
+    background-color:inherited;
+    padding:5px;
+}
+#resource_from_holder {
+    background-color:pink; 
+    margin:0px; 
+    padding:5px; 
+    margin-top:10px; 
+    font-size:13px; 
+    text-align:right
+}
+#collection_desc_customize_position {
+    padding:8px; 
+    min-height:80px; 
+    margin:5px; 
+    margin-top:0px;
+}
+#relation_container_customize {
+    padding:5px; 
+    min-height:100px; 
+    width:610px;
+}
+.related_from_box {
+    padding:8px; 
+    background-color:#81F79F; 
+    min-height:100px; 
+    margin:10px; 
+    margin-top:20px;
+}

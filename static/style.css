@@ -1,0 +1,109 @@
+body {
+    background-color: #C5DAD6;
+    color: #424242;
+}
+a, a:hover {
+    color: #210B61;
+    font-weight: bold;
+    text-decoration: none;
+}
+a:hover {
+    color: #B404AE;
+}
+input[type=text], textarea {
+    -moz-border-radius: 15px;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #5E5E5E;
+    width: 250px;
+}
+input[type=text] {
+    height: 30px;
+}
+textarea {
+    resize: none;
+    height: 100px;
+}
+.content_container {
+    background-color: white;
+    padding: 10px;
+}
+.rounded {
+    -moz-border-radius: 15px;
+    border-radius: 10px;
+}
+.collection_description {
+    font-size: 17px;
+    color: #585858;
+    background-color: #F3E2A9;
+    border-color: #A4A4A4; 
+    border-style: solid; 
+    border-width: 1px;
+}
+.short_title {
+    padding: 5px; 
+    background-color: #F7D358;
+}
+.main_title {
+    margin: 10px;
+    font-size: 35px;
+    font-weight: bold;
+    color: #375771;
+}
+.small_container {
+    border-style: solid; 
+    border-width: 1px; 
+    border-color: #A4A4A4; 
+    background-color: #D8D8D8;
+}
+.img_container_small {
+    text-align: center;
+}
+img.img_representative_collection {
+    width: 110px;
+    height: 110px;
+}
+div.title_representative_collection {
+    text-align: center; 
+    font-size: 14px; 
+    margin-top: 5px;
+}
+div#right_side_info {
+    width: 250px; 
+    min-height: 300px; 
+    margin-top: 5px; 
+    padding: 0px;
+}
+.group_content_container {
+    padding: 10px; 
+    min-height: 100px; 
+    margin: 10px; 
+    padding-top: 15px;
+}
+table#indiv_resource_holder {
+    max-width: 550px; 
+    margin-top: 5px;
+}
+td.indiv_resource_container {
+    width: 120px;
+}
+div.indiv_resource_container {
+    background-color: white; 
+    border: 1px solid; 
+    border-color: #A4A4A4; 
+    margin: 9px;  
+    padding: 5px; 
+    padding-top: 10px; 
+    width: 120px; 
+    height: 150px;
+}
+.time_display_container {
+    margin-top:3px; 
+    padding-right:8px; 
+    padding-top:3px; 
+    font-size:13px; 
+    text-align:right
+}
+.indiv_rel_from_item_container {
+    margin-top:5px; margin-left:15px; font-size:14px; margin-bottom:10px;
+}

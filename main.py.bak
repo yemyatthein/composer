@@ -1,0 +1,46 @@
+from flask import Flask, render_template, url_for, request
+from forms import NewCollectionForm, NewGroupForm
+from models import db, User, Collection, CollectionGroup
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/new_collection', methods=['GET', 'POST'])
+def create_collection():
+    user = User.query.first()   
+    form = NewCollectionForm(request.form, csrf_enabled=False)
+    if request.method == 'POST':
+        if form.validate():
+           cl = Collection(request.form['cname'], request.form['desc'], created_by=user)
+           db.session.add(cl)
+           db.session.commit()
+           form = NewCollectionForm(csrf_enabled=False)
+    return render_template('create_collection.html',form=form)
+
+@app.route('/all_collection', methods=['GET'])
+def browse_collection():
+    cls = Collection.query.all()
+    return render_template('browse_collection.html',cls=cls)
+
+@app.route('/one_collection/<cid>', methods=['GET'])
+def view_collection(cid):
+    cl = Collection.query.filter_by(cid=cid).first()
+    return render_template('one_collection.html',cl=cl)
+    
+@app.route('/new_group/<cid>', methods=['GET', 'POST'])
+def create_group(cid):
+    gform = NewGroupForm(request.form, csrf_enabled=False)
+    if request.method == 'POST':
+        if form.validate():
+           collection = Collection.query.filter_by(cid=cid).first()
+           cg = CollectionGroup(request.form['gname'], collection)
+           db.session.add(cg)
+           db.session.commit()
+           gform = NewGroupForm(csrf_enabled=False)
+    return render_template('create_group.html', form=gform)
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0')

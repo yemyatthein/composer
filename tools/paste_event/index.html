@@ -1,0 +1,15 @@
+<input type="text" id="ent" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+    alert("Hksa")
+    $(document).ready(function(){
+        $("#ent").bind('paste', function() {
+            setTimeout(function () {
+                var url = $("#ent").val()
+                alert(url)
+            }, 100);
+            
+        });
+    });
+</script>
